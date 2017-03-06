@@ -1,0 +1,14 @@
+/* app css stylesheet */
+
+.add-to-list {
+	position: fixed;
+	bottom:0px;
+	left:0px;
+
+	width:100%;
+}
+
+.add-to-list .md-button {
+	position: absolute;
+	right:0px;
+}

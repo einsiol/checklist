@@ -1,0 +1,8 @@
+<md-list ng-controller="ListCtrl" ng-cloak>
+    <md-subheader class="md-no-sticky">Single Action Checkboxes</md-subheader>
+    <md-list-item ng-repeat="topping in toppings">
+        <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
+        <p> {{ topping.name }} </p>
+    </md-list-item>
+    <md-divider></md-divider>
+</md-list>
