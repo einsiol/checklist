@@ -18,31 +18,39 @@ checklistApp.directive('myEnter', function () {
 
 
 
-checklistApp.controller('ListCtrl', function($scope, $mdDialog, $firebaseObject) {
+checklistApp.controller('ListCtrl', function($scope, $timeout, $mdDialog, $firebaseObject, $firebaseArray) {
 
-	$scope.items = [];
 	//if(!localStorage.checkList) localStorage.setItem('checkList', '[]');
 
 	// console.log(localStorage.getItem('checkList'))
 
-   	 var ref = firebase.database().ref().child("data");
+   	 var ref = firebase.database().ref().child('checklist');
 	  // download the data into a local object
-	  var syncObject = $firebaseObject(ref);
+	 $scope.items = $firebaseArray(ref);
+
+
 	  // synchronize the object with a three-way data binding
 	  // click on `index.html` above to see it used in the DOM!
-	  syncObject.$bindTo($scope, "items");
+	 
+	  //$scope.data = [];
 
     $scope.updateList = function(event){
 
     	// console.log(event);
 
+    	console.log('update');
+
+    	$scope.items.$save();
+
+    	console.log($scope.items);
+
     	//localStorage.setItem('checkList', angular.toJson($scope.items));
     }
 
-    $scope.removeItem = function(index){
+    $scope.removeItem = function(id){
     	//console.log(index);
 
-    	$scope.items.splice(index, 1);
+    	$scope.items.$remove(id);
 
     	//localStorage.setItem('checkList', angular.toJson($scope.items));
     };
@@ -51,11 +59,12 @@ checklistApp.controller('ListCtrl', function($scope, $mdDialog, $firebaseObject)
 
     	//console.log($scope.listItem);
     	//console.log($scope.items);
-
+    	console.log($scope.items);
 
     	if ($scope.listItem) {
 
-	    	$scope.items.push({name:$scope.listItem, wanted:false});
+	    	$scope.items.$add({name:$scope.listItem, wanted:false});
+	    	//$scope.checklist.$save({name:$scope.listItem, wanted:false});
 
 	    	//localStorage.setItem('checkList', angular.toJson($scope.items));
     	}

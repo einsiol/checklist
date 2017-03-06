@@ -18,9 +18,9 @@
       <md-list ng-cloak>
           <md-subheader class="md-no-sticky">Checklist</md-subheader>
           <md-list-item ng-repeat="item in items">
-              <md-checkbox class="md-primary" ng-model="item.wanted" ng-change="updateList($event)"></md-checkbox>
+              <md-checkbox class="md-primary" ng-model="item.wanted" ng-change="items.$save(item)"></md-checkbox>
               <p> {{ item.name }} </p>
-              <md-button class="md-secondary md-icon-button" aria-label="delete" ng-click="removeItem($index)">
+              <md-button class="md-secondary md-icon-button" aria-label="delete" ng-click="items.$remove(item)">
                 <md-icon ng-bind="'close'"></md-icon>
               </md-button>
           </md-list-item>
