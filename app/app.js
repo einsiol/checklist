@@ -23,6 +23,7 @@ checklistApp.controller('ListCtrl', function($scope, $timeout, $mdDialog, $fireb
    	 var ref = firebase.database().ref().child('checklist');
 	  // download the data into a local object
 	 $scope.items = $firebaseArray(ref);
+	 
 
     $scope.removeItem = function(id){
 
