@@ -1,0 +1,23 @@
+<div layout="column" layout-align="center center" class="login-container">
+
+<md-input-container class="md-block" flex-gt-sm>
+    <label>What is your user name?</label>
+    <input ng-model="name" my-enter="">
+</md-input-container>
+
+<md-input-container class="md-block" flex-gt-sm>
+    <label>What is your email?</label>
+    <input ng-model="email" my-enter="">
+</md-input-container>
+
+<md-input-container class="md-block" flex-gt-sm>
+    <label>What is your password?</label>
+    <input ng-model="password" type="password" my-enter="">
+</md-input-container>
+
+<div class="error" ng-messages="serverErrors" ng-show="serverError" data-ng-cloak>
+	<p>{{serverError}}</p>
+</div>
+
+ <md-button ng-click="registerUser()">Register</md-button>
+</div>

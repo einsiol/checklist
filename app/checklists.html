@@ -1,8 +1,32 @@
-<md-list ng-controller="ListCtrl" ng-cloak>
-    <md-subheader class="md-no-sticky">Single Action Checkboxes</md-subheader>
-    <md-list-item ng-repeat="topping in toppings">
-        <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
-        <p> {{ topping.name }} </p>
-    </md-list-item>
-    <md-divider></md-divider>
-</md-list>
+  <div ng-controller="ListCtrl" class="main-content">
+        <md-list ng-cloak>
+            <md-subheader class="md-no-sticky">Checklist</md-subheader>
+
+            <md-divider></md-divider>
+
+            <md-list-item ng-repeat="item in items" id="{{$id}}">
+
+            	<div ng-repeat="v in [0]" style="display: inline">
+                	<md-checkbox class="md-primary" style="margin:0" ng-model="item.wanted" ng-change="items.$save(item)"></md-checkbox>
+                </div>
+
+                <p> {{ item.name }} </p>
+                <md-button class="md-secondary md-icon-button" aria-label="delete" ng-click="items.$remove(item)">
+                  <md-icon ng-bind="'close'"></md-icon>
+                </md-button>
+
+                <md-divider></md-divider>
+
+            </md-list-item>
+        </md-list>
+
+        <md-input-container class="add-to-list" md-no-float>
+         <!-- <label>Add to list</label> -->
+          <input type="text" ng-model="listItem" placeholder="Add to list" my-enter="addToList()">
+          <md-button class="md-primary md-icon-button"  ng-click="addToList()">
+            <md-icon ng-bind="'publish'" aria-label="add"></md-icon>
+          </md-button>
+        </md-input-container>
+        
+
+      </div>

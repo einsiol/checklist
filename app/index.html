@@ -14,42 +14,24 @@
     <!--
     Your HTML content here
   -->
-    <div ng-controller="ListCtrl" class="main-content">
-      <md-list ng-cloak>
-          <md-subheader class="md-no-sticky">Checklist</md-subheader>
-          <md-list-item ng-repeat="item in items">
-              <md-checkbox class="md-primary" ng-model="item.wanted" ng-change="items.$save(item)"></md-checkbox>
-              <p> {{ item.name }} </p>
-              <md-button class="md-secondary md-icon-button" aria-label="delete" ng-click="items.$remove(item)">
-                <md-icon ng-bind="'close'"></md-icon>
-              </md-button>
-          </md-list-item>
-          <md-divider></md-divider>
-      </md-list>
-
-      <md-input-container class="add-to-list" md-no-float>
-       <!-- <label>Add to list</label> -->
-        <input type="text" ng-model="listItem" placeholder="Add to list" my-enter="addToList()">
-        <md-button class="md-primary md-icon-button"  ng-click="addToList()">
-          <md-icon ng-bind="'playlist_add'" aria-label="add"></md-icon>
-        </md-button>
-      </md-input-container>
-      
-
+    <div ng-view ng-controller="MainController" class="main-view">
+    
     </div>
 
     <!-- Angular Material requires Angular.js Libraries -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-cookies.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.js"></script>
     <!-- Angular Material Library -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
 
     <!-- AngularFire -->
-    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.js"></script>
 
     <!-- Your application bootstrap  -->
     
