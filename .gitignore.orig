@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+logs/*
+!.gitkeep
+node_modules/
+bower_components/
+tmp
+.DS_Store
+.idea
+=======
 # Logs
 logs
 *.log
@@ -35,3 +44,4 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+>>>>>>> 1a69520130d727e62ea59c1b311c64d698015eee
